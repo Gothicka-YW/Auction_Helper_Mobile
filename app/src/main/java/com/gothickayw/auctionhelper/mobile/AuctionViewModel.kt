@@ -78,7 +78,7 @@ class AuctionViewModel(application: Application) : AndroidViewModel(application)
         _bundleDraft.value = emptyList()
     }
 
-    fun createBundle(name: String, reserve: Long) {
+    fun createBundle(name: String, reserve: Long, coverIconUrl: String) {
         val draft = _bundleDraft.value
         if (draft.size < 2) return
         mutate { current ->
@@ -88,7 +88,7 @@ class AuctionViewModel(application: Application) : AndroidViewModel(application)
                     lotType = LotType.BUNDLE,
                     name = name.ifBlank { "Bundle (${draft.size} items)" },
                     reserve = reserve,
-                    iconUrl = draft.firstOrNull()?.iconUrl.orEmpty(),
+                    iconUrl = coverIconUrl.ifBlank { draft.firstOrNull()?.iconUrl.orEmpty() },
                     bundleItems = draft,
                 )
             )
