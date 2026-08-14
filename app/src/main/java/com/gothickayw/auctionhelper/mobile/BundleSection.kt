@@ -28,7 +28,7 @@ fun BundleSection(
     SectionCard("BUNDLE DRAFT", "${draft.size} items") {
         draft.forEach { item ->
             Row(modifier = Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
-                ItemBadge(item.name, Modifier.size(40.dp))
+                ItemBadge(item.name, item.iconUrl, Modifier.size(40.dp))
                 Text(
                     item.name,
                     modifier = Modifier.weight(1f).padding(horizontal = 8.dp),
