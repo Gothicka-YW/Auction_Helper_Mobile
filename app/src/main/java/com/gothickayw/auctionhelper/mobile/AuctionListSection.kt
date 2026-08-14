@@ -31,7 +31,7 @@ fun AuctionListSection(lots: List<AuctionLot>, onDelete: (AuctionLot) -> Unit) {
                     .padding(8.dp),
                 verticalAlignment = Alignment.CenterVertically,
             ) {
-                ItemBadge(lot.name, Modifier.size(44.dp))
+                ItemBadge(lot.name, lot.iconUrl, Modifier.size(44.dp))
                 Column(modifier = Modifier.weight(1f).padding(horizontal = 8.dp)) {
                     Text(lot.name, fontWeight = FontWeight.Bold, maxLines = 1, overflow = TextOverflow.Ellipsis)
                     Text("${lot.status.wire} · reserve ${formatCoins(lot.reserve)}",
