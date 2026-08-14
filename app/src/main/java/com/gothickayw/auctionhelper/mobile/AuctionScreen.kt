@@ -175,10 +175,10 @@ fun AuctionScreen(viewModel: AuctionViewModel) {
     }
     if (bundleOpen) {
         BundleDialog(
-            count = draft.size,
+            items = draft,
             onDismiss = { bundleOpen = false },
-            onSave = { name, reserve ->
-                viewModel.createBundle(name, reserve)
+            onSave = { name, reserve, coverIconUrl ->
+                viewModel.createBundle(name, reserve, coverIconUrl)
                 bundleOpen = false
             },
         )
