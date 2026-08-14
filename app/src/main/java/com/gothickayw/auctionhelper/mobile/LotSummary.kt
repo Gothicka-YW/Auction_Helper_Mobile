@@ -17,7 +17,7 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun LotSummary(lot: AuctionLot, compact: Boolean = false) {
     Row(modifier = Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
-        ItemBadge(lot.name, Modifier.size(if (compact) 42.dp else 68.dp))
+        ItemBadge(lot.name, lot.iconUrl, Modifier.size(if (compact) 42.dp else 68.dp))
         Column(modifier = Modifier.weight(1f).padding(start = 10.dp)) {
             Text(lot.name, fontWeight = FontWeight.Black)
             Text(
