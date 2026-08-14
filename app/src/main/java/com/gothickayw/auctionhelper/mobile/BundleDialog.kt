@@ -44,6 +44,7 @@ fun BundleDialog(
                 Text("$count items will be sold as one auction lot.")
                 OutlinedTextField(name, { name = it }, label = { Text("Bundle name") })
                 OutlinedTextField(reserve, { reserve = it }, label = { Text("Reserve / Starting Bid") })
+                CopyAllNamesButton(items.map { it.name })
                 Text("Bundle cover icon", style = MaterialTheme.typography.labelLarge)
                 items.forEach { item ->
                     val selected = item.id == selectedId
@@ -66,6 +67,7 @@ fun BundleDialog(
                             maxLines = 1,
                             overflow = TextOverflow.Ellipsis,
                         )
+                        CopyNameButton(item.name)
                         RadioButton(selected = selected, onClick = { selectedId = item.id })
                     }
                 }

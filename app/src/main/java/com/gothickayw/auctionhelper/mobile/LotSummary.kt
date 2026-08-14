@@ -19,7 +19,10 @@ fun LotSummary(lot: AuctionLot, compact: Boolean = false) {
     Row(modifier = Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
         ItemBadge(lot.name, lot.iconUrl, Modifier.size(if (compact) 42.dp else 68.dp))
         Column(modifier = Modifier.weight(1f).padding(start = 10.dp)) {
-            Text(lot.name, fontWeight = FontWeight.Black)
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Text(lot.name, modifier = Modifier.weight(1f), fontWeight = FontWeight.Black)
+                CopyNameButton(lot.name)
+            }
             Text(
                 if (lot.lotType == LotType.BUNDLE) "Bundle · ${lot.bundleItems.size} items"
                 else "Single Item · Qty ${lot.quantity}",
@@ -30,10 +33,12 @@ fun LotSummary(lot: AuctionLot, compact: Boolean = false) {
             if (!compact && lot.lotType == LotType.BUNDLE) {
                 Text(
                     lot.bundleItems.joinToString(" · ") { it.name },
-                    maxLines = 3, overflow = TextOverflow.Ellipsis,
+                    maxLines = 3,
+                    overflow = TextOverflow.Ellipsis,
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
+                CopyAllNamesButton(lot.bundleItems.map { it.name })
             }
         }
     }

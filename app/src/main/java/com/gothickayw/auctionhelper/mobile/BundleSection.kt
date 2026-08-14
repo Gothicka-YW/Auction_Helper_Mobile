@@ -35,8 +35,12 @@ fun BundleSection(
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis,
                 )
+                CopyNameButton(item.name)
                 IconButton(onClick = { onRemove(item.id) }) { Icon(Icons.Default.Close, "Remove") }
             }
+        }
+        if (draft.isNotEmpty()) {
+            CopyAllNamesButton(draft.map { it.name })
         }
         Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
             OutlinedButton(onClick = onClear, modifier = Modifier.weight(1f)) { Text("Clear") }

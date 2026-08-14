@@ -37,6 +37,7 @@ fun AuctionListSection(lots: List<AuctionLot>, onDelete: (AuctionLot) -> Unit) {
                     Text("${lot.status.wire} · reserve ${formatCoins(lot.reserve)}",
                         style = MaterialTheme.typography.labelSmall)
                 }
+                CopyNameButton(lot.name)
                 IconButton(onClick = { onDelete(lot) }) { Icon(Icons.Default.Delete, "Delete") }
             }
         }

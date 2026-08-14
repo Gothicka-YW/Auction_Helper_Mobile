@@ -32,6 +32,7 @@ fun SearchRow(
             Text(result.name, fontWeight = FontWeight.Bold, maxLines = 2)
             Text("ID ${result.id}", style = MaterialTheme.typography.labelSmall)
         }
+        CopyNameButton(result.name)
         Column {
             TextButton(onClick = onItem) { Text("Item") }
             TextButton(onClick = onBundle) { Text("Bundle") }
