@@ -27,7 +27,7 @@ fun SearchRow(
             .padding(8.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        ItemBadge(result.name)
+        ItemBadge(result.name, result.iconUrl)
         Column(modifier = Modifier.weight(1f).padding(horizontal = 8.dp)) {
             Text(result.name, fontWeight = FontWeight.Bold, maxLines = 2)
             Text("ID ${result.id}", style = MaterialTheme.typography.labelSmall)
